@@ -19,30 +19,41 @@ public class GUI extends JFrame{
 		
 	}
 	
+	
+	// UI code is organized into a function to make stuff neat
 	private void initUI(){
 		
+		// Create the container to put buttons and stuff in
 		Container pane = getContentPane();
 		GroupLayout g1 = new GroupLayout(pane);
 		pane.setLayout(g1);
 		
+		// Window components
 		JButton quitButton = new JButton("Cookie");
 		final JLabel cookiesDisplay = new JLabel("Cookies: " + Integer.toString(cookies));
 		
+		// Add action for the cookie (button = cookie) so you get cookies
 		quitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				cookies += 1;
+				// Update JLabel that displays number of cookies
 				cookiesDisplay.setText("Cookies: " + Integer.toString(cookies));
 			}
 		});
-		
-		
 
+		// Create gaps in the container
 		g1.setAutoCreateContainerGaps(true);
 		
-		g1.setHorizontalGroup(g1.createSequentialGroup().addComponent(quitButton).addComponent(cookiesDisplay));
-		g1.setVerticalGroup(g1.createSequentialGroup().addComponent(quitButton).addComponent(cookiesDisplay));
-
+		// Add the components to the horizontal and vertical groups
+		g1.setHorizontalGroup(g1.createSequentialGroup()
+				.addComponent(quitButton)
+				.addComponent(cookiesDisplay));
 		
+		g1.setVerticalGroup(g1.createSequentialGroup()
+				.addComponent(quitButton)
+				.addComponent(cookiesDisplay));
+
+		// Window setup 
 		setTitle("Simple Example");
 		setSize(200, 300);
 		setLocationRelativeTo(null);
