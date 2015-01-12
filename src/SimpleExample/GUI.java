@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 public class GUI extends JFrame{
 	
 	int cookies = 0;
+	int cursors = 0;
 	
 	public GUI(){
 		
@@ -32,12 +33,28 @@ public class GUI extends JFrame{
 		JButton quitButton = new JButton("Cookie");
 		final JLabel cookiesDisplay = new JLabel("Cookies: " + Integer.toString(cookies));
 		
+		JButton buyCursor = new JButton("Buy a cursor");
+		final JLabel numOfCursors = new JLabel("Cursors: " + Integer.toString(cursors));
+		
 		// Add action for the cookie (button = cookie) so you get cookies
 		quitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				cookies += 1;
 				// Update JLabel that displays number of cookies
 				cookiesDisplay.setText("Cookies: " + Integer.toString(cookies));
+			}
+		});
+		
+		// Add action for the button that buys cursors
+		buyCursor.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				if(cookies >= 15){
+					cursors += 1;
+					cookies -= 15;
+					// Update JLabels
+					numOfCursors.setText("Cursors: " + Integer.toString(cursors));
+					cookiesDisplay.setText("Cookies: " + Integer.toString(cookies));
+				}
 			}
 		});
 
@@ -47,11 +64,17 @@ public class GUI extends JFrame{
 		// Add the components to the horizontal and vertical groups
 		g1.setHorizontalGroup(g1.createSequentialGroup()
 				.addComponent(quitButton)
-				.addComponent(cookiesDisplay));
+				.addComponent(cookiesDisplay)
+				.addComponent(numOfCursors)
+				.addComponent(buyCursor)
+				);
 		
 		g1.setVerticalGroup(g1.createSequentialGroup()
 				.addComponent(quitButton)
-				.addComponent(cookiesDisplay));
+				.addComponent(cookiesDisplay)
+				.addComponent(numOfCursors)
+				.addComponent(buyCursor)
+				);
 
 		// Window setup 
 		setTitle("Simple Example");
