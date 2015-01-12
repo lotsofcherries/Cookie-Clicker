@@ -62,6 +62,7 @@ public class GUI extends JFrame{
 	
 	public static void main(String[] args){
 		
+		// Create the window and run the program
 		EventQueue.invokeLater(new Runnable(){
 			public void run(){
 				GUI ex = new GUI(); 
