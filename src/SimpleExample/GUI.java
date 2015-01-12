@@ -26,12 +26,12 @@ public class GUI extends JFrame{
 		pane.setLayout(g1);
 		
 		JButton quitButton = new JButton("Cookie");
-		final JLabel cookiesDisplay = new JLabel(Integer.toString(cookies));
+		final JLabel cookiesDisplay = new JLabel("Cookies: " + Integer.toString(cookies));
 		
 		quitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
 				cookies += 1;
-				cookiesDisplay.setText(Integer.toString(cookies));
+				cookiesDisplay.setText("Cookies: " + Integer.toString(cookies));
 			}
 		});
 		
