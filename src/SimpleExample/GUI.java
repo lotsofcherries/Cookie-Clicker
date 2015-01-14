@@ -13,6 +13,7 @@ public class GUI extends JFrame{
 	
 	int cookies = 0;
 	int cursors = 0;
+	int cps = 0;
 	
 	public GUI(){
 		
@@ -51,6 +52,7 @@ public class GUI extends JFrame{
 				if(cookies >= 15){
 					cursors += 1;
 					cookies -= 15;
+					cps += 0.1;
 					// Update JLabels
 					numOfCursors.setText("Cursors: " + Integer.toString(cursors));
 					cookiesDisplay.setText("Cookies: " + Integer.toString(cookies));
