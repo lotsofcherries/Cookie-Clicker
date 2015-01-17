@@ -80,7 +80,7 @@ public class GUI extends JFrame{
 
 		// Window setup 
 		setTitle("Simple Example");
-		setSize(200, 300);
+		setSize(500, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
